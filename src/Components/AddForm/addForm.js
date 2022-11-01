@@ -3,6 +3,13 @@ import { useContext } from 'react';
 import { settingsContext } from '../../Context/settingsContext';
 import useForm from '../../hooks/form.js';
 
+/**
+ * We're using the `useForm` hook to handle the form submission and the `useContext` hook to get the `addItem` function from the `settingsContext` and the `defaultValues` object
+ * 
+ * @returns A form with a submit button.
+ */
+
+
 const AddForm = ({ children }) => {
 
   const { defaultValues, addItem } = useContext(settingsContext);
