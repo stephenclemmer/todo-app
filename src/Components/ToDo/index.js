@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form'
 import AppHeader  from '../Header/header';
+import AppFooter from '../Footer/footer';
 
 import { v4 as uuid } from 'uuid';
 import List from '../List/list'
@@ -32,10 +33,10 @@ const ToDo = () => {
     setList([...list, item]);
   }
 
-  function deleteItem(id) {
-    const items = list.filter(item => item.id !== id);
-    setList(items);
-  }
+  // function deleteItem(id) {
+  //   const items = list.filter(item => item.id !== id);
+  //   setList(items);
+  // }
 
   function toggleComplete(id) {
 
@@ -60,7 +61,7 @@ const ToDo = () => {
     <>
       <AppHeader incomplete={incomplete} />
       <Grid style={{ width: '80%', margin: 'auto' }}>
-        <Grid.Col xs={12} sm={4}></Grid.Col>
+        <Grid.Col xs={12} sm={4}>
         <Card>
           <Text className={classes.formHeading}>Add To Do Item</Text>
 
@@ -97,12 +98,14 @@ const ToDo = () => {
           </form>
 
         </Card>
+        </Grid.Col>
 
-        <Grid.Col>
-          <Grid.Col xs={12} sm={8}></Grid.Col>
+    
+          <Grid.Col xs={12} sm={8}>
           <List list={list} toggleComplete={toggleComplete}></List>
         </Grid.Col>
       </Grid>
+      <AppFooter />
     </>
   );
 };

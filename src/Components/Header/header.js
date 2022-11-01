@@ -1,4 +1,5 @@
-import {createStyles, Header, Navbar, Text} from '@mantine/core';
+import { createStyles, Header, Navbar, Text } from '@mantine/core';
+import '../Header/header.scss';
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -19,13 +20,28 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
-const AppHeader = ({incomplete}) => {
+const AppHeader = ({ incomplete }) => {
   const { classes } = useStyles();
 
   return (
     <Header data-testid="todo-header">
-      <Navbar className={classes.navbar}>
-        <Text>Home</Text>
+      <Navbar className={classes.navbar} style={{
+        display: 'inline-block'
+      }}>
+        <Text
+          style={{
+            display: 'inline-block',
+            padding: 5,
+          }}
+        >Home
+        </Text>
+        <Text
+          style={{
+            display: 'inline-block',
+            padding: 5,
+          }}
+        >Settings
+        </Text>
       </Navbar>
       <h1 className={classes.h1} data-testid="todo-h1">To Do List: {incomplete} items pending</h1>
     </Header>
