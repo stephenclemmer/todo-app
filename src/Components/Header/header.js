@@ -1,5 +1,6 @@
 import { createStyles, Header, Navbar, Text } from '@mantine/core';
 import '../Header/header.scss';
+import { BrowserRouter as Router, Route, Routes, Switch, Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
   navbar: {
@@ -20,6 +21,10 @@ const useStyles = createStyles((theme) => ({
   }
 }))
 
+/**
+ * The AppHeader function is a React component that returns a header with a title and a number of
+ * incomplete tasks.
+ */
 const AppHeader = ({ incomplete }) => {
   const { classes } = useStyles();
 
@@ -28,22 +33,35 @@ const AppHeader = ({ incomplete }) => {
       <Navbar className={classes.navbar} style={{
         display: 'inline-block'
       }}>
-        <Text
-          style={{
-            display: 'inline-block',
-            padding: 5,
-          }}
-        >Home
-        </Text>
-        <Text
-          style={{
-            display: 'inline-block',
-            padding: 5,
-          }}
-        >Settings
-        </Text>
+        <div> 
+          <div
+            style={{
+              display: 'inline-block',
+              padding: 10,
+            }}>
+            <Link to="/">Home</Link>
+          </div>
+          <div
+            style={{
+              display: 'inline-block',
+              padding: 10,
+              color: 'white',
+            }}>
+            <Link to="/settings">Settings</Link>
+          </div>
+          {/* <Text
+            
+          >Home
+          </Text>
+          <Text
+            style={{
+              display: 'inline-block',
+              padding: 5,
+            }}
+          >Settings
+          </Text> */}
+        </div>
       </Navbar>
-      <h1 className={classes.h1} data-testid="todo-h1">To Do List: {incomplete} items pending</h1>
     </Header>
   )
 }

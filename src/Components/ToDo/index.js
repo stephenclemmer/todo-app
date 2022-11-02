@@ -13,6 +13,16 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.lg,
     fontWeight: 'bold',
   },
+  h1: {
+    backgroundColor: theme.colors.gray[8],
+    color: theme.colors.gray[0],
+    width: '80%',
+    margin: 'auto',
+    fontSize: theme.fontSizes.lg,
+    padding: theme.spacing.md,
+    marginBottom: theme.spacing.md,
+    marginTop: theme.spacing.md,
+  }
 }));
 
 const ToDo = () => {
@@ -59,7 +69,9 @@ const ToDo = () => {
 
   return (
     <>
-      <AppHeader incomplete={incomplete} />
+     <h1 className={classes.h1} data-testid="todo-h1">To Do List: {incomplete} items pending</h1>
+
+      {/* <AppHeader incomplete={incomplete} /> */}
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={4}>
         <Card>
