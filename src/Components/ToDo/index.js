@@ -1,7 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import useForm from '../../hooks/form'
-import AppHeader  from '../Header/header';
-import AppFooter from '../Footer/footer';
 
 import { v4 as uuid } from 'uuid';
 import List from '../List/list'
@@ -43,11 +41,6 @@ const ToDo = () => {
     setList([...list, item]);
   }
 
-  // function deleteItem(id) {
-  //   const items = list.filter(item => item.id !== id);
-  //   setList(items);
-  // }
-
   function toggleComplete(id) {
 
     const items = list.map(item => {
@@ -71,7 +64,6 @@ const ToDo = () => {
     <>
      <h1 className={classes.h1} data-testid="todo-h1">To Do List: {incomplete} items pending</h1>
 
-      {/* <AppHeader incomplete={incomplete} /> */}
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={4}>
         <Card>
@@ -117,7 +109,6 @@ const ToDo = () => {
           <List list={list} toggleComplete={toggleComplete}></List>
         </Grid.Col>
       </Grid>
-      <AppFooter />
     </>
   );
 };
