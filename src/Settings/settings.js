@@ -3,12 +3,6 @@ import React from 'react';
 import { NumberInput, Button, Card, createStyles, Grid, Switch, Text, TextInput } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
-  navbar: {
-    backgroundColor: theme.colors.blue[7],
-    padding: theme.spacing.md,
-    fontSize: theme.fontSizes.md,
-    color: theme.colors.gray[0],
-  },
   h1: {
     backgroundColor: theme.colors.gray[8],
     color: theme.colors.gray[0],
@@ -23,9 +17,11 @@ const useStyles = createStyles((theme) => ({
 
 const Settings = () => {
 
+  const { classes } = useStyles();
+
   return (
     <>
-      <h1>Manage Settings</h1>
+    <h1 className={classes.h1}>Manage Settings</h1>
 
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={4}>
@@ -37,8 +33,10 @@ const Settings = () => {
                 label="Show Completed ToDos"
               />
 
+
+{/* On change -> setItems() */}
               <NumberInput
-                label='Items Per page'
+                label='Items per Page'
                 placeholder="pick one"
                 max={10}
                 min={1}
@@ -48,7 +46,7 @@ const Settings = () => {
                 placeholder="difficulty"
                 name="sortKeyword"
                 // onClick={handleClick}
-                label="sortKeyword"
+                label="Sort Keyword"
               />
 
               <Button 
@@ -64,9 +62,15 @@ const Settings = () => {
 
         <Grid.Col xs={12} sm={8}>
           <ul>
-            <li>1</li>
-            <li>2</li>
-            <li>3</li>
+            <Text> Updated Settings</Text>
+
+            {/* if (toggle is on){ */}
+              <Text> Show Completed ToDos</Text>
+            {/* } else { */}
+              <Text> Do Not Show Completed ToDos</Text>
+            {/* } */}
+            
+            <Text>Sort Keyword difficulty</Text>
           </ul>
         </Grid.Col>
       </Grid>
