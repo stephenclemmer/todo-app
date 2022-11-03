@@ -32,6 +32,7 @@ const ToDo = () => {
   });
   const [list, setList] = useState([]);
   const [incomplete, setIncomplete] = useState([]);
+/* Destructuring the useForm hook and assigning the handleChange and handleSubmit functions to the variables of the same name. */
   const { handleChange, handleSubmit } = useForm(addItem, defaultValues);
 
   function addItem(item) {
@@ -39,6 +40,11 @@ const ToDo = () => {
     item.complete = false;
     console.log(item);
     setList([...list, item]);
+  }
+
+  function deleteItem(id) {
+    const items = list.filter(item => item.id !== id);
+    setList(items);
   }
 
   function toggleComplete(id) {
@@ -66,7 +72,7 @@ const ToDo = () => {
 
       <Grid style={{ width: '80%', margin: 'auto' }}>
         <Grid.Col xs={12} sm={4}>
-        <Card>
+        <Card withBorder p="xs">
           <Text className={classes.formHeading}>Add To Do Item</Text>
 
           <form onSubmit={handleSubmit}>
@@ -106,7 +112,12 @@ const ToDo = () => {
 
     
           <Grid.Col xs={12} sm={8}>
-          <List list={list} toggleComplete={toggleComplete}></List>
+          <List 
+          list={list} 
+          toggleComplete={toggleComplete}
+          deleteItem={deleteItem}
+          >
+          </List>
         </Grid.Col>
       </Grid>
     </>

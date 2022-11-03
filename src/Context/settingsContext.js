@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
+// import Settings from '../Settings/settings';
 
 export const SettingsContext = React.createContext()
+
 
 const SettingsProvider = ({ children }) => {
 
@@ -24,4 +26,12 @@ const SettingsProvider = ({ children }) => {
   )
 }
 
-export default SettingsProvider
+export default SettingsProvider;
+
+
+
+
+
+
+
+
