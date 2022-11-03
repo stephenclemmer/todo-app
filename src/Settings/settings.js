@@ -1,5 +1,6 @@
 import React from 'react';
 
+
 import { NumberInput, Button, Card, createStyles, Grid, Switch, Text, TextInput } from '@mantine/core';
 
 const useStyles = createStyles((theme) => ({
@@ -24,8 +25,8 @@ const Settings = () => {
     <h1 className={classes.h1}>Manage Settings</h1>
 
       <Grid style={{ width: '80%', margin: 'auto' }}>
-        <Grid.Col xs={12} sm={4}>
-          <Card>
+        <Grid.Col xs={12} sm={6}>
+          <Card withBorder p="xs">
             <Text>Update Settings</Text>
 
             <form>
@@ -36,6 +37,7 @@ const Settings = () => {
 
 {/* On change -> setItems() */}
               <NumberInput
+                // onChange={(value) => setPageItems(value)}
                 label='Items per Page'
                 placeholder="pick one"
                 max={10}
@@ -44,8 +46,8 @@ const Settings = () => {
 
               <TextInput
                 placeholder="difficulty"
-                name="sortKeyword"
-                // onClick={handleClick}
+                // name="sortKeyword"
+                // onChange={(e) => setSort(e.target.value)}
                 label="Sort Keyword"
               />
 
@@ -60,8 +62,8 @@ const Settings = () => {
         </Grid.Col>
 
 
-        <Grid.Col xs={12} sm={8}>
-          <ul>
+        <Grid.Col xs={12} sm={6}>
+        <Card withBorder p="xs">
             <Text> Updated Settings</Text>
 
             {/* if (toggle is on){ */}
@@ -71,7 +73,7 @@ const Settings = () => {
             {/* } */}
             
             <Text>Sort Keyword difficulty</Text>
-          </ul>
+            </Card>
         </Grid.Col>
       </Grid>
     </>

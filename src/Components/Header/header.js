@@ -1,5 +1,4 @@
 import { createStyles, Header, Navbar } from '@mantine/core';
-import '../Header/header.scss';
 import { Link } from 'react-router-dom';
 
 const useStyles = createStyles((theme) => ({
@@ -9,16 +8,20 @@ const useStyles = createStyles((theme) => ({
     fontSize: theme.fontSizes.md,
     color: theme.colors.gray[0],
   },
-  h1: {
-    backgroundColor: theme.colors.gray[8],
-    color: theme.colors.gray[0],
-    width: '80%',
-    margin: 'auto',
-    fontSize: theme.fontSizes.lg,
-    padding: theme.spacing.md,
-    marginBottom: theme.spacing.md,
-    marginTop: theme.spacing.md,
-  }
+  link: {
+      textDecoration: 'none',
+      color: theme.colors.gray[0],
+  },
+  // h1: {
+  //   backgroundColor: theme.colors.gray[8],
+  //   color: theme.colors.gray[0],
+  //   width: '80%',
+  //   margin: 'auto',
+  //   fontSize: theme.fontSizes.lg,
+  //   padding: theme.spacing.md,
+  //   marginBottom: theme.spacing.md,
+  //   marginTop: theme.spacing.md,
+  // }
 }))
 
 
@@ -35,7 +38,7 @@ const AppHeader = ({ incomplete }) => {
               display: 'inline-block',
               padding: 10,
             }}>
-            <Link to="/">Home</Link>
+            <Link className={classes.link} to="/">Home</Link>
           </div>
 
           <div
@@ -44,7 +47,7 @@ const AppHeader = ({ incomplete }) => {
               padding: 10,
               color: 'white',
             }}>
-            <Link to="/settings">Settings</Link>
+            <Link className={classes.link} to="/settings">Settings</Link>
           </div>
       </Navbar>
     </Header>
